@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "3a1789a5-6514-4ead-ae26-e9bdcfc211f7",
+		"name": "Shops",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34544633"
+	},
+	"item": [
+		{
+			"name": "Get Shop",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response body is not empty\", function () {\r",
+							"    pm.expect(pm.response.text()).to.not.be.empty;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{nameUrl}}/toyShops",
+					"host": [
+						"{{nameUrl}}"
+					],
+					"path": [
+						"toyShops"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Shop",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"POST endpoint should return 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{nameUrl}}/toyShops",
+					"host": [
+						"{{nameUrl}}"
+					],
+					"path": [
+						"toyShops"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Shop",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"PUT request returns object with at least 3 properties\", () => {\r",
+							"    pm.expect(Object.keys(pm.response.json()).length).to.be.at.least(3);\r",
+							"    pm.expect(pm.response.json()).to.have.property('id');\r",
+							"    pm.expect(pm.response.json()).to.have.property('name');\r",
+							"    pm.expect(pm.response.json()).to.have.property('location');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"PUT request returns object with non-empty name property\", () => {\r",
+							"    pm.expect(pm.response.json().name).to.not.be.empty;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{nameUrl}}/toyShops",
+					"host": [
+						"{{nameUrl}}"
+					],
+					"path": [
+						"toyShops"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Del Shop",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 204\", function () {\r",
+							"  pm.response.to.have.status(204);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response body is empty\", function () {\r",
+							"  pm.expect(pm.response.text()).to.be.empty;\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{nameUrl}}/toyShops/2",
+					"host": [
+						"{{nameUrl}}"
+					],
+					"path": [
+						"toyShops",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
